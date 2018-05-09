@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>T7 Mousetrap Example</title>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="mousetrap.min.js"></script>
+    <script src="mousetrap-global-bind.min.js"></script>
+</head>
+
+<body>
+    <h1>A simple library for handling keyboard shortcuts in Javascript.</h1>
+
+    <h2>DEMO</h2>
+    
+    <h3 id="s">Press Only S to change the background color of this</h3>
+    <br>
+    <h3 id="cs">Press CTRL+ S to change the background color of this</h3>
+    <br>
+    
+    <a href="https://craig.is/killing/mice" title="Official Link">Official Link</a>
+    <br>
+    <a href="https://ourcodeworld.com/articles/read/394/the-right-way-to-add-keyboard-shortcuts-in-javascript-with-mousetrap">Other Guide</a>
+    
+
+
+    <!-- ------------------------JS Starts------------------------>
+    <script type="text/javascript">
+    $(document).ready(function() 
+    {
+
+        /*        To Bind Single key 
+         */
+        Mousetrap.bind('s', function() { $("#s").css("background-color", "yellow") });
+
+         /*        To Bind Combination key 
+         */
+        
+
+        Mousetrap.bindGlobal('ctrl+s', function(e) 
+        {
+            if (e.preventDefault) 
+            {
+                e.preventDefault();
+            }
+            
+            $("#cs").css("background-color", "blue")
+        });
+    });
+    </script>
+    <!-- ------------------------JS Ends------------------------>
+</body>
+
+</html>
